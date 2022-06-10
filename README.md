@@ -6,3 +6,9 @@
 ╚═════╝░╚══════╝░░░╚═╝░░░  ░╚═════╝░░╚════╝░╚══════╝╚═════╝░░░░╚═╝░░░
 
 ### ``My own custom server software I install on every server.``
+
+```sh
+# Windows/Linux
+
+pip install DevGoldy
+```

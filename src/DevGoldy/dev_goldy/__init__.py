@@ -1,17 +1,24 @@
 import click
+import devgoldyutils
 
-@click.command()
-def devgoldy():
-    print("""
+console = devgoldyutils.Console()
+
+@click.group(invoke_without_command=True)
+@click.pass_context
+def devgoldy(ctx):
+    if ctx.invoked_subcommand is None:
+        print("""
 ██████╗░███████╗██╗░░░██╗  ░██████╗░░█████╗░██╗░░░░░██████╗░██╗░░░██╗
 ██╔══██╗██╔════╝██║░░░██║  ██╔════╝░██╔══██╗██║░░░░░██╔══██╗╚██╗░██╔╝
 ██║░░██║█████╗░░╚██╗░██╔╝  ██║░░██╗░██║░░██║██║░░░░░██║░░██║░╚████╔╝░
 ██║░░██║██╔══╝░░░╚████╔╝░  ██║░░╚██╗██║░░██║██║░░░░░██║░░██║░░╚██╔╝░░
 ██████╔╝███████╗░░╚██╔╝░░  ╚██████╔╝╚█████╔╝███████╗██████╔╝░░░██║░░░
 ╚═════╝░╚══════╝░░░╚═╝░░░  ░╚═════╝░░╚════╝░╚══════╝╚═════╝░░░░╚═╝░░░
-    """)
+        """)
 
-@click.command()
-@click.option("-program", "-p", help="Runs program.", required=True)
-def start(program):
-    pass
+    else:
+        print(console.BLUE(f"Running command {ctx.invoked_subcommand}..."))
+        print("")
+    
+from . import utils
+from . import start, usb

@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
   name='DevGoldy',
-  version="1.0dev",
+  version="1.1dev",
   description='My own custom server software I install on every server.', 
   url='https://github.com/THEGOLDENPRO/Dev-Goldy-Server-Software', 
   project_urls={"Bug Tracker": "https://github.com/THEGOLDENPRO/Dev-Goldy-Server-Software/issues"}, 

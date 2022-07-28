@@ -1,3 +1,15 @@
+import click
+import devgoldyutils
+
+from .. import info
+
+console = devgoldyutils.Console()
+
+@click.group(invoke_without_command=True)
+@click.pass_context
+def devgoldy(ctx):
+    if ctx.invoked_subcommand is None:
+        print(f"""
 ██████╗░███████╗██╗░░░██╗  ░██████╗░░█████╗░██╗░░░░░██████╗░██╗░░░██╗
 ██╔══██╗██╔════╝██║░░░██║  ██╔════╝░██╔══██╗██║░░░░░██╔══██╗╚██╗░██╔╝
 ██║░░██║█████╗░░╚██╗░██╔╝  ██║░░██╗░██║░░██║██║░░░░░██║░░██║░╚████╔╝░
@@ -5,12 +17,12 @@
 ██████╔╝███████╗░░╚██╔╝░░  ╚██████╔╝╚█████╔╝███████╗██████╔╝░░░██║░░░
 ╚═════╝░╚══════╝░░░╚═╝░░░  ░╚═════╝░░╚════╝░╚══════╝╚═════╝░░░░╚═╝░░░
 
-### ``My own custom cli software I install on every server/machine. It provides me shortcuts to commands on both Linux and Windows.``
+    Version: [ {info.VERSION} ]
+        """)
 
-<br>
-
-```sh
-# Windows/Linux
-
-pip install DevGoldy
-```
+    else:
+        print(console.BLUE(f"Running command {ctx.invoked_subcommand}..."))
+        print("")
+    
+from . import utils
+from . import start, usb

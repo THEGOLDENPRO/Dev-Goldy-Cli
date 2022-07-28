@@ -5,7 +5,7 @@
 ██████╔╝███████╗░░╚██╔╝░░  ╚██████╔╝╚█████╔╝███████╗██████╔╝░░░██║░░░
 ╚═════╝░╚══════╝░░░╚═╝░░░  ░╚═════╝░░╚════╝░╚══════╝╚═════╝░░░░╚═╝░░░
 
-### ``My own custom server software I install on every server.``
+### ``My own custom cli software I install on every server/machine. It provides me shortcuts to commands on both Linux and Windows.``
 
 <br>
 

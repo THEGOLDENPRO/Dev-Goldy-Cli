@@ -1,6 +1,13 @@
 import subprocess, sys
 
-def run(cmd):
-    process = subprocess.Popen(["powershell", "-Command", cmd], stdout=sys.stdout)
-    process.communicate()
-    return process
+from . import ShellInterface
+
+class PowerShell(ShellInterface):
+    """Microsoft Powershell interface."""
+    def __init__(self, cmd:str):
+        self.process = subprocess.Popen(["powershell", "-Command", cmd], stdout=sys.stdout)
+        super().__init__()
+
+    def run(self) -> subprocess.Popen:
+        self.process.communicate()
+        return self.process

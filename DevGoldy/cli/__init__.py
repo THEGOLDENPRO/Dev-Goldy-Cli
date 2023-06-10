@@ -1,16 +1,10 @@
 import click
-import devgoldyutils
+from devgoldyutils import Colours
+from .. import __version__, dev_goldy_logger
 
-try:
-    from .. import info
-except ValueError:
-    import info
-
-console = devgoldyutils.Console()
-
-@click.group(invoke_without_command=True)
+@click.group(invoke_without_command = True)
 @click.pass_context
-def devgoldy(ctx:click.Context):
+def dev_goldy(ctx: click.Context):
     if ctx.invoked_subcommand is None:
         print(f"""
 ██████╗░███████╗██╗░░░██╗  ░██████╗░░█████╗░██╗░░░░░██████╗░██╗░░░██╗
@@ -20,14 +14,16 @@ def devgoldy(ctx:click.Context):
 ██████╔╝███████╗░░╚██╔╝░░  ╚██████╔╝╚█████╔╝███████╗██████╔╝░░░██║░░░
 ╚═════╝░╚══════╝░░░╚═╝░░░  ░╚═════╝░░╚════╝░╚══════╝╚═════╝░░░░╚═╝░░░
 
-    Version: [ {info.VERSION} ]
+    Version: [ {__version__} ]
         """)
 
-        print(console.BLUE("Do 'devgoldy --help' for a list of available commands."))
+        print(Colours.BLUE.apply("Do 'devgoldy --help' for a list of available commands."))
 
     else:
-        print(console.BLUE(f"Running command {ctx.invoked_subcommand}..."))
+        dev_goldy_logger.info(Colours.BLUE.apply(f"Running command {ctx.invoked_subcommand}..."))
         print("")
-    
-from . import utils
-from . import start, usb
+
+
+# Register sub commands.
+# -----------------------
+from .commands import *

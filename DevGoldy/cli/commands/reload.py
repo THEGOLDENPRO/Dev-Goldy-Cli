@@ -1,9 +1,6 @@
 import os
 import sys
 
-import click
-from click import Context
-
 from . import dev_goldy
 from ... import errors
 

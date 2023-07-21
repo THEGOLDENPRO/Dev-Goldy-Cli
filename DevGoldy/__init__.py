@@ -7,4 +7,4 @@ dev_goldy_logger = add_custom_handler(
     level = logging.DEBUG
 )
 
-__version__: Final[str] = "1.3.1"
+__version__: Final[str] = "1.3.2"

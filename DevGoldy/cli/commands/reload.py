@@ -18,6 +18,6 @@ def gui():
     if sys.platform == "linux":
 
         if os.environ.get("KDE_FULL_SESSION") == "true": # KDE
-            return os.system("kquitapp5 plasmashell && kstart plasmashell")
+            return os.system("killall plasmashell && kstart5 plasmashell")
 
     raise errors.OSNotSupported()
